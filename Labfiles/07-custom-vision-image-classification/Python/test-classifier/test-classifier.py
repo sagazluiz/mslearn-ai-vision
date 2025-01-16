@@ -13,9 +13,10 @@ def main():
         project_id = os.getenv('ProjectID')
         model_name = os.getenv('ModelName')
 
+
         # Authenticate a client for the training API
         credentials = ApiKeyCredentials(in_headers={"Prediction-key": prediction_key})
-        prediction_client = CustomVisionPredictionClient(endpoint=prediction_endpoint, credentials=credentials)
+        prediction_client = CustomVisionPredictionClient(prediction_endpoint, credentials)
 
         # Classify test images
         for image in os.listdir('test-images'):
